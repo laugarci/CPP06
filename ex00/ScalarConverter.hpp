@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 18:48:26 by laugarci          #+#    #+#             */
-/*   Updated: 2024/02/08 10:48:36 by laugarci         ###   ########.fr       */
+/*   Updated: 2024/02/08 17:55:50 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class ScalarConverter {
 		ScalarConverter& operator=(const ScalarConverter& other);
 		static void convert(const std::string& literal);
 		static void		isChar(std::string toChar);
+		static void		printAll(std::string toChar, float toFloat, double toDouble, int toInt);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 18:48:44 by laugarci          #+#    #+#             */
-/*   Updated: 2024/02/08 12:25:11 by laugarci         ###   ########.fr       */
+/*   Updated: 2024/02/08 18:05:38 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,29 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter& other)
 	(void)other;
 }
 
+void	ScalarConverter::printAll(std::string toChar, float toFloat, double toDouble, int toInt)
+{
+	std::cout << "char: " << toChar << std::endl;
+	if (toChar == "imposible") {
+		std::cout << "int: imposible" << std::endl;
+	} else {
+		std::cout << "int: " << toInt << std::endl;
+	}
+
+	if (toChar == "imposible" && toFloat == 0) {
+		std::cout << "float: imposible" << std::endl;
+		std::cout << "double: imposible" << std::endl;
+	} else {
+		if (toChar != "imposible" && toFloat - static_cast<int>(toFloat) == 0) {
+			std::cout << "float: " << toFloat << ".0f" << std::endl;
+			std::cout << "double: " << toDouble << ".0" << std::endl;
+		} else {
+			std::cout << "float: " << toFloat << "f" << std::endl;
+			std::cout << "double: " << toDouble << std::endl;
+		}
+	}
+}
+
 void	ScalarConverter::isChar(std::string toChar)
 {
 	std::cout << "char: " << toChar << std::endl;
@@ -41,6 +64,7 @@ void	ScalarConverter::isChar(std::string toChar)
 
 void	ScalarConverter::convert(const std::string& literal)
 {
+	std::string special[6] = {"-inff", "+inff", "nanf", "-inf", "+inf", "nan"};
 	std::string toChar = "";
 	int toInt = 0;
 	float toFloat = 0;
@@ -55,10 +79,8 @@ void	ScalarConverter::convert(const std::string& literal)
 	else
 	{
 		toInt = std::atoi(literal.c_str());
-		//los numeros acabados en f se interpretan como un float y los que no como un double (por ejemplo 3.14 y 3.14f)
 		if (literal[literal.length() - 1] == 'f')
 		{
-			//atof y atoi esperan una cadena de caracteres tipo c (puntero terminado en nulo)
 			toFloat = std::atof(literal.c_str());
 			toDouble = static_cast<double>(toFloat);
 		}
@@ -68,7 +90,26 @@ void	ScalarConverter::convert(const std::string& literal)
 			toFloat = static_cast<float>(toDouble);
 		}
 	}
-	std::cout << "int: " << toInt << std::endl;
-	std::cout << "float: " << toFloat << ".0f" << std::endl; //si es float no imprimir 0f
-	std::cout << "double: " << toDouble << ".0" << std::endl;
+	int i = 0;
+	while (i < 6)
+	{
+		if (literal == special[i])
+		{
+			toChar = "imposible";
+			break ;
+		}
+		i++;
+	}
+
+	if (toChar == "" && std::isprint(toInt))
+	{
+		toChar = "'";
+		toChar += static_cast<char>(toInt);
+		toChar += "'";
+	}
+	else if (toChar == "")
+	{
+		toChar = "Non displayable";
+	}
+	printAll(toChar, toFloat, toDouble, toInt);
 }
