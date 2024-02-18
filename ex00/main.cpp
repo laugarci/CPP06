@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:25:21 by laugarci          #+#    #+#             */
-/*   Updated: 2024/02/08 18:02:20 by laugarci         ###   ########.fr       */
+/*   Updated: 2024/02/18 16:52:20 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	converterTest()
 	std::cout << "-----" << std::endl;
 	ScalarConverter::convert("10.5");
 	std::cout << "-----" << std::endl;
-	ScalarConverter::convert("nan");
+	ScalarConverter::convert("-5");
 	std::cout << "-----" << std::endl;
 	ScalarConverter::convert("@");
 	std::cout << "-----" << std::endl;

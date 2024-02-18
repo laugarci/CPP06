@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/04 18:48:26 by laugarci          #+#    #+#             */
-/*   Updated: 2024/02/15 10:45:03 by laugarci         ###   ########.fr       */
+/*   Created: 2024/02/18 18:02:34 by laugarci          #+#    #+#             */
+/*   Updated: 2024/02/18 18:44:36 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERTER_HPP
-#define SCALARCONVERTER_HPP
+#pragma once
 
 #include <iostream>
 
-class ScalarConverter {
-	private:
-		ScalarConverter();	
+class Base {
 	public:
-		~ScalarConverter();
-		ScalarConverter(const ScalarConverter& other);
-		ScalarConverter& operator=(const ScalarConverter& other);
-		static void convert(const std::string& literal);
-		static void	isChar(std::string toChar);
-		static void	printAll(std::string toChar, float toFloat, double toDouble, int toInt);
+		virtual ~Base( void ) {};
 };
 
-#endif
+class A: public Base {};
+
+class B: public Base {};
+
+class C: public Base {};
