@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 19:06:23 by laugarci          #+#    #+#             */
-/*   Updated: 2024/02/18 17:29:39 by laugarci         ###   ########.fr       */
+/*   Updated: 2024/02/28 10:42:43 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include <cstdint>
+
+#define BOLD "\x1B[1m"
+#define RESET "\x1B[0m"
 
 struct Data {
     int value;

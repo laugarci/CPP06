@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 18:04:09 by laugarci          #+#    #+#             */
-/*   Updated: 2024/02/18 19:49:51 by laugarci         ###   ########.fr       */
+/*   Updated: 2024/02/28 11:08:43 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,19 @@ Base *generate(void)
 	int i = rand() % 3;
 	if (i == 0)
 	{
+		std::cout << BGRED "Creating new A" RESET << std::endl;
 		base = new A;
 		return (base);
 	}
 	else if (i == 1)
 	{
+		std::cout << BGRED "Creating new B" RESET << std::endl;
 		base = new B;
 		return (base);
 	}
 	else if (i == 2)
 	{
+		std::cout << BGRED "Creating new C" RESET << std::endl;
 		base = new C;
 		return (base);
 	}
@@ -44,6 +47,7 @@ void	identify(Base *p)
 	else if (dynamic_cast<C*>(p) != NULL)
 		std::cout << "C" << std::endl;
 	delete p;
+	std::cout << std::endl;
 }
 
 void	identify(Base& p)
@@ -85,6 +89,15 @@ int main()
 	identify(generate());
 	identify(generate());
 	identify(generate());
+	identify(generate());
+	identify(generate());
+	identify(generate());
+	identify(generate());
+	identify(*generate());
+	identify(*generate());
+	identify(*generate());
+	identify(*generate());
+	identify(*generate());
 	identify(*generate());
 	identify(*generate());
 	identify(*generate());
